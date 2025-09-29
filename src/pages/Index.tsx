@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import Education from "@/components/Education";
+import Contact from "@/components/Contact";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Hero />
+      <About />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Education />
+      <Contact />
+      
+      {/* Footer */}
+      <footer className="bg-primary text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-white/80">
+            © 2025 Mohamed Mashood Arshad Mohamed. All rights reserved.
+          </p>
+          <p className="text-white/60 text-sm mt-2">
+            Quantity Surveyor | Construction Management Specialist
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
