@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, ArrowDown } from "lucide-react";
 import profilePlaceholder from "@/assets/profile-placeholder.jpg";
+import heroConstruction from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -8,8 +9,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/95 to-primary/90">
-      {/* Background Pattern */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-primary/85">
+        <img 
+          src={heroConstruction} 
+          alt="Construction Background" 
+          className="w-full h-full object-cover opacity-20"
+        />
+      </div>
+      
+      {/* Overlay Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, hsl(var(--accent)) 35px, hsl(var(--accent)) 36px)`
@@ -46,7 +56,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 justify-center mb-12">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 shadow-xl transition-all hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 shadow-xl transition-all hover:scale-105"
               onClick={() => scrollToSection('contact')}
             >
               <Mail className="mr-2 h-5 w-5" />
@@ -54,8 +64,7 @@ const Hero = () => {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 transition-all hover:scale-105"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 transition-all hover:scale-105 shadow-xl"
               onClick={() => scrollToSection('projects')}
             >
               View Projects
