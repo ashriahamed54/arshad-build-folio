@@ -40,15 +40,15 @@ const Hero = () => {
           </div>
 
           {/* Name and Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-4 tracking-tight">
             Mohamed Mashood<br />Arshad Mohamed
           </h1>
           <div className="inline-block bg-accent px-6 py-3 rounded-full mb-6">
-            <p className="text-xl md:text-2xl font-semibold text-white">
+            <p className="text-xl md:text-2xl font-semibold text-accent-foreground">
               Quantity Surveyor
             </p>
           </div>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
             B.Sc. (Hons) in QS | HND QS & Construction | Construction Management Specialist
           </p>
 
@@ -64,7 +64,7 @@ const Hero = () => {
             </Button>
             <Button 
               size="lg" 
-              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 transition-all hover:scale-105 shadow-xl"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-primary-foreground hover:bg-white hover:text-primary font-semibold px-8 transition-all hover:scale-105 shadow-xl"
               onClick={() => scrollToSection('projects')}
             >
               View Projects
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
 
           {/* Quick Contact */}
-          <div className="flex flex-wrap gap-6 justify-center text-white/80 text-sm">
+          <div className="flex flex-wrap gap-6 justify-center text-primary-foreground/80 text-sm">
             <a href="tel:+94775127647" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="h-4 w-4" />
               +94 775 127 647
@@ -94,7 +94,7 @@ const Hero = () => {
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown className="h-8 w-8 text-white/60" />
+            <ArrowDown className="h-8 w-8 text-primary-foreground/60" />
           </div>
         </div>
       </div>

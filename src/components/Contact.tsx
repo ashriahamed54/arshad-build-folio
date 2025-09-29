@@ -48,16 +48,16 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="space-y-6 animate-slide-in">
-              <Card className="p-8 bg-gradient-to-br from-primary to-primary/90 text-white">
+              <Card className="p-8 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
                 <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   {contactInfo.map((item, index) => (
                     <div key={index} className="flex items-start gap-4">
-                      <div className="p-3 bg-white/10 rounded-lg">
-                        <item.icon className="h-5 w-5" />
+                      <div className="p-3 bg-accent/20 rounded-lg">
+                        <item.icon className="h-5 w-5 text-accent-foreground" />
                       </div>
                       <div>
-                        <p className="text-sm text-white/80 mb-1">{item.label}</p>
+                        <p className="text-sm text-primary-foreground/70 mb-1">{item.label}</p>
                         {item.href ? (
                           <a 
                             href={item.href}
@@ -77,13 +77,11 @@ const Contact = () => {
               </Card>
 
               <Card className="p-6 bg-muted/50">
-                <h4 className="font-bold text-foreground mb-3">Personal Details</h4>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p><strong>Nationality:</strong> Sri Lankan</p>
-                  <p><strong>Languages:</strong> English, Tamil, Sinhala</p>
-                  <p><strong>NIC:</strong> 981002547V</p>
-                  <p><strong>Driving License:</strong> B4352072</p>
-                </div>
+                <h4 className="font-bold text-foreground mb-3">Available for Hire</h4>
+                <p className="text-sm text-muted-foreground">
+                  Open to new opportunities in quantity surveying, construction management, 
+                  and project consulting roles.
+                </p>
               </Card>
             </div>
 
@@ -102,7 +100,7 @@ const Contact = () => {
                 <div className="space-y-4">
                   <Button 
                     size="lg" 
-                    className="w-full bg-accent hover:bg-accent/90 text-white font-semibold"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
                     onClick={() => window.location.href = 'mailto:arshadmmashood@gmail.com'}
                   >
                     <Mail className="mr-2 h-5 w-5" />
@@ -111,7 +109,7 @@ const Contact = () => {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    className="w-full border-2 hover:bg-accent hover:text-white hover:border-accent transition-all"
+                    className="w-full border-2 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all"
                     onClick={() => window.location.href = 'tel:+94775127647'}
                   >
                     <Phone className="mr-2 h-5 w-5" />

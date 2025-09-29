@@ -20,12 +20,12 @@ const Index = () => {
       <Contact />
       
       {/* Footer */}
-      <footer className="bg-primary text-white py-8">
+      <footer className="bg-primary text-primary-foreground py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-white/80">
+          <p className="text-primary-foreground/80">
             © 2025 Mohamed Mashood Arshad Mohamed. All rights reserved.
           </p>
-          <p className="text-white/60 text-sm mt-2">
+          <p className="text-primary-foreground/60 text-sm mt-2">
             Quantity Surveyor | Construction Management Specialist
           </p>
         </div>
