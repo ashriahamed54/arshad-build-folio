@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, ArrowDown } from "lucide-react";
-import profilePlaceholder from "@/assets/profile-placeholder.jpg";
+import profilePhoto from "@/assets/profile-photo.jpg";
 import heroConstruction from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
@@ -32,8 +32,8 @@ const Hero = () => {
           <div className="mb-8 inline-block">
             <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-accent shadow-2xl animate-scale-in">
               <img 
-                src={profilePlaceholder} 
-                alt="Profile" 
+                src={profilePhoto} 
+                alt="Mohamed Mashood Arshad Mohamed - Quantity Surveyor" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -76,6 +76,10 @@ const Hero = () => {
             <a href="tel:+94775127647" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="h-4 w-4" />
               +94 775 127 647
+            </a>
+            <a href="tel:+971523595085" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <Phone className="h-4 w-4" />
+              +971 52 359 5085
             </a>
             <a href="mailto:arshadmmashood@gmail.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="h-4 w-4" />

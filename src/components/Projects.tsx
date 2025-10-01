@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { FileText } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 import project1 from "@/assets/project1.jpg";
 import project2 from "@/assets/project2.jpg";
@@ -12,22 +13,36 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Luxury Residential Development",
+      title: "M.M.R. Mohamed Residential Project",
       category: "Residential",
-      images: [project1, project1, project1], // Add more images as needed
-      description: "High-end residential project featuring modern architecture and premium finishes. This development showcases contemporary design principles with sustainable materials and energy-efficient solutions."
+      image: project1,
+      description: "Complete residential construction project with detailed quantity surveying and cost management.",
+      pdfUrl: "https://drive.google.com/file/d/19S8QBc8GeSfPpU5ZTs2-zQ-0WdSuQOeF/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=19S8QBc8GeSfPpU5ZTs2-zQ-0WdSuQOeF"
     },
     {
-      title: "Commercial Office Complex",
+      title: "M.M. Siraj Ahamed Commercial Project",
       category: "Commercial",
-      images: [project2, project2, project2], // Add more images as needed
-      description: "Multi-story commercial building with state-of-the-art facilities. The complex includes modern office spaces, meeting rooms, and amenities designed for productivity and comfort."
+      image: project2,
+      description: "Large-scale commercial development with comprehensive cost estimation and project management.",
+      pdfUrl: "https://drive.google.com/file/d/19YoCGqg_ED3ZLUli-FNGokryWdosgehp/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=19YoCGqg_ED3ZLUli-FNGokryWdosgehp"
     },
     {
-      title: "Interior Renovation Project",
+      title: "M.M.R. Mohamed Commercial Project",
+      category: "Commercial",
+      image: project3,
+      description: "Commercial construction project featuring detailed BOQ and cost analysis.",
+      pdfUrl: "https://drive.google.com/file/d/19b4GjTqrp23pA7HTwPwpJDg-g36bYTRL/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=19b4GjTqrp23pA7HTwPwpJDg-g36bYTRL"
+    },
+    {
+      title: "M.M.R. Mohamed Interior Project",
       category: "Interior",
-      images: [project3, project3, project3], // Add more images as needed
-      description: "Complete interior renovation with elegant design and quality materials. This project transformed outdated spaces into modern, functional environments with attention to detail and craftsmanship."
+      image: project1,
+      description: "Interior design and construction project with complete cost management and quality control.",
+      pdfUrl: "https://drive.google.com/file/d/19ZkdBsc2lj5m6-YxbhVYfrR_uocxnWYB/preview",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=19ZkdBsc2lj5m6-YxbhVYfrR_uocxnWYB"
     }
   ];
 
@@ -46,36 +61,37 @@ const Projects = () => {
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A showcase of recent construction and quantity surveying projects. 
-              These images are placeholders - replace with your own project photos.
+              Explore detailed project documentation including BOQ, cost analysis, and project specifications.
+              Click on any project to view the complete documentation.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card 
+              <Card
                 key={index}
-                className="overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-scale-in cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="relative overflow-hidden aspect-video">
-                  <img 
-                    src={project.images[0]} 
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-accent text-accent-foreground">
-                      {project.category}
-                    </Badge>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <span className="text-white font-semibold text-sm">Click to view gallery</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                    <div className="flex items-center gap-2 text-accent">
+                      <FileText className="h-6 w-6" />
+                      <span className="font-semibold">View Documentation</span>
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-2">
+                  <Badge className="mb-3 bg-accent text-accent-foreground">
+                    {project.category}
+                  </Badge>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground line-clamp-2">
@@ -92,13 +108,6 @@ const Projects = () => {
             project={selectedProject}
           />
 
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground bg-muted/50 inline-block px-6 py-3 rounded-lg">
-              💡 <strong>Note:</strong> Replace these placeholder images with your actual project photos by 
-              uploading your images to <code className="bg-background px-2 py-1 rounded">src/assets/</code> 
-              and updating the imports in the Projects component.
-            </p>
-          </div>
         </div>
       </div>
     </section>

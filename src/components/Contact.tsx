@@ -4,9 +4,14 @@ import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
 const Contact = () => {
   const contactInfo = [{
     icon: Phone,
-    label: "Phone",
+    label: "Phone (Sri Lanka)",
     value: "+94 775 127 647",
     href: "tel:+94775127647"
+  }, {
+    icon: Phone,
+    label: "Phone (Dubai)",
+    value: "+971 52 359 5085",
+    href: "tel:+971523595085"
   }, {
     icon: Mail,
     label: "Email",

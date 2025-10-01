@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Download, FileText } from "lucide-react";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -9,7 +10,8 @@ interface ProjectModalProps {
     title: string;
     category: string;
     description: string;
-    images: string[];
+    pdfUrl: string;
+    downloadUrl: string;
   } | null;
 }
 
@@ -18,46 +20,57 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-            {project.title}
-            <Badge className="bg-accent text-accent-foreground">{project.category}</Badge>
-          </DialogTitle>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <DialogTitle className="text-2xl mb-2">{project.title}</DialogTitle>
+              <Badge className="bg-accent text-accent-foreground mb-4">
+                {project.category}
+              </Badge>
+              <p className="text-muted-foreground mb-4">{project.description}</p>
+            </div>
+            <Button
+              onClick={() => window.open(project.downloadUrl, '_blank')}
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download PDF
+            </Button>
+          </div>
         </DialogHeader>
-        
-        <div className="space-y-6">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {project.images.map((image, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative aspect-video rounded-lg overflow-hidden">
-                    <img
-                      src={image}
-                      alt={`${project.title} - Image ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {project.images.length > 1 && (
-              <>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </>
-            )}
-          </Carousel>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Project Description</h3>
-            <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+        <div className="mt-6">
+          <div className="bg-muted/30 rounded-lg p-4 mb-4 flex items-center gap-3">
+            <FileText className="h-5 w-5 text-accent" />
+            <div>
+              <p className="font-semibold text-foreground">Project Documentation</p>
+              <p className="text-sm text-muted-foreground">
+                View the complete project documentation including BOQ, cost analysis, and specifications
+              </p>
+            </div>
           </div>
 
-          <div className="bg-muted/50 p-4 rounded-lg">
+          <div className="relative w-full" style={{ height: '70vh' }}>
+            <iframe
+              src={project.pdfUrl}
+              className="w-full h-full rounded-lg border-2 border-border"
+              title={project.title}
+              allow="autoplay"
+            />
+          </div>
+
+          <div className="mt-4 text-center">
             <p className="text-sm text-muted-foreground">
-              <strong>Note:</strong> Upload your actual project images to showcase multiple views and details of this project. 
-              Each project can display unlimited images in the gallery.
+              If the document doesn't load, please{" "}
+              <a
+                href={project.downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline font-semibold"
+              >
+                download it directly
+              </a>
             </p>
           </div>
         </div>
