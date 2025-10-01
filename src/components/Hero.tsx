@@ -41,7 +41,7 @@ const Hero = () => {
 
           {/* Name and Title */}
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-4 tracking-tight">
-            Mohamed Mashood<br />Arshad Mohamed
+            MOHAMED MASHOOD<br />ARSHAD MOHAMED
           </h1>
           <div className="inline-block bg-accent px-6 py-3 rounded-full mb-6">
             <p className="text-xl md:text-2xl font-semibold text-accent-foreground">
