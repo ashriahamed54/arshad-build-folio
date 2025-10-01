@@ -91,12 +91,9 @@ const Projects = () => {
                   <Badge className="mb-3 bg-accent text-accent-foreground">
                     {project.category}
                   </Badge>
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground line-clamp-2">
-                    {project.description}
-                  </p>
                 </div>
               </Card>
             ))}

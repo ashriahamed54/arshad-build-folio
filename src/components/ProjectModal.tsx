@@ -22,21 +22,23 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <DialogTitle className="text-2xl mb-2">{project.title}</DialogTitle>
-              <Badge className="bg-accent text-accent-foreground mb-4">
-                {project.category}
-              </Badge>
-              <p className="text-muted-foreground mb-4">{project.description}</p>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="flex-1">
+                <DialogTitle className="text-2xl mb-2">{project.title}</DialogTitle>
+                <Badge className="bg-accent text-accent-foreground mb-4">
+                  {project.category}
+                </Badge>
+              </div>
+              <Button
+                onClick={() => window.open(project.downloadUrl, '_blank')}
+                className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download PDF
+              </Button>
             </div>
-            <Button
-              onClick={() => window.open(project.downloadUrl, '_blank')}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              Download PDF
-            </Button>
+            <p className="text-muted-foreground">{project.description}</p>
           </div>
         </DialogHeader>
 
