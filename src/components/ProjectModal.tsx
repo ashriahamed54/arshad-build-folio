@@ -38,7 +38,6 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                 Download PDF
               </Button>
             </div>
-            <p className="text-muted-foreground">{project.description}</p>
           </div>
         </DialogHeader>
 
