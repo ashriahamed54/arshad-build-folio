@@ -43,16 +43,6 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
         </DialogHeader>
 
         <div className="mt-6">
-          <div className="bg-muted/30 rounded-lg p-4 mb-4 flex items-center gap-3">
-            <FileText className="h-5 w-5 text-accent" />
-            <div>
-              <p className="font-semibold text-foreground">Project Documentation</p>
-              <p className="text-sm text-muted-foreground">
-                View the complete project documentation including BOQ, cost analysis, and specifications
-              </p>
-            </div>
-          </div>
-
           <div className="relative w-full" style={{ height: '70vh' }}>
             <iframe
               src={project.pdfUrl}
